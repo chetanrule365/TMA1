@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="converter">
+      <div class="from">
+        <label class="value">
+          From:
+          <input type="number" id="from" autofocus />
+        </label>
+        <div class="units">
+          <input type="radio" name="from" id="from1" value="1" checked />
+          <label for="from1">mm</label>
+          <input type="radio" name="from" id="from2" value="10" />
+          <label for="from2">cm</label>
+          <input type="radio" name="from" id="from3" value="100" />
+          <label for="from3">dm</label>
+          <input type="radio" name="from" id="from4" value="1000" />
+          <label for="from4">m</label>
+          <input type="radio" name="from" id="from5" value="1000000" />
+          <label for="from5">km</label>
+          <input type="radio" name="from" id="from6" value="25.4" />
+          <label for="from6">in</label>
+          <input type="radio" name="from" id="from7" value="304.8" />
+          <label for="from7">ft</label>
+          <input type="radio" name="from" id="from8" value="914.4" />
+          <label for="from8">yd</label>
+          <input type="radio" name="from" id="from9" value="1609344" />
+          <label for="from9">mi</label>
+        </div>
+      </div>
+      <div class="to">
+        <label class="value">
+          To:
+          <input type="number" id="to" disabled />
+        </label>
+        <div class="units">
+          <input type="radio" name="to" id="to1" value="1" checked />
+          <label for="to1">mm</label>
+          <input type="radio" name="to" id="to2" value="10" />
+          <label for="to2">cm</label>
+          <input type="radio" name="to" id="to3" value="100" />
+          <label for="to3">dm</label>
+          <input type="radio" name="to" id="to4" value="1000" />
+          <label for="to4">m</label>
+          <input type="radio" name="to" id="to5" value="1000000" />
+          <label for="to5">km</label>
+          <input type="radio" name="to" id="to6" value="25.4" />
+          <label for="to6">in</label>
+          <input type="radio" name="to" id="to7" value="304.8" />
+          <label for="to7">ft</label>
+          <input type="radio" name="to" id="to8" value="914.4" />
+          <label for="to8">yd</label>
+          <input type="radio" name="to" id="to9" value="1609344" />
+          <label for="to9">mi</label>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      const inputField = document.querySelector("#from");
+      const outputField = document.querySelector("#to");
+      const units = document.querySelectorAll(".units input");
+
+      const getInputValue = () => Number(inputField.value);
+
+      const isValidValue = (inputValue) =>
+        !Number.isNaN(inputValue) && inputValue >= 0;
+
+      const showError = () => {
+        inputField.classList.add("error");
+        outputField.value = "";
+      };
+
+      const getOutput = (inputValue) => {
+        const inputUnit = document.querySelector(".from .units input:checked");
+        const inputValueInMillimeters = inputValue * Number(inputUnit.value);
+        const outputUnit = document.querySelector(".to .units input:checked");
+        const outputValue = inputValueInMillimeters / Number(outputUnit.value);
+        outputField.value = outputValue;
+      };
+
+      const convert = () => {
+        const inputValue = getInputValue();
+        inputField.focus();
+        if (!isValidValue(inputValue)) {
+          showError();
+          return;
+        }
+        inputField.classList.remove("error");
+        getOutput(inputValue);
+      };
+
+      inputField.addEventListener("input", convert);
+      units.forEach((unit) => unit.addEventListener("change", convert));
+    </script>
+  </body>
+</html>

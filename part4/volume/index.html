@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Cubic meter (m³) Calculator</h1>
+      <div>
+        <p>Length(m)</p>
+        <input id="length" placeholder="Enter length" />
+      </div>
+      <div>
+        <p>Width(m)</p>
+        <input id="width" placeholder="Enter width" />
+      </div>
+      <div>
+        <p>Thickness(cm)</p>
+        <input id="thickness" placeholder="Enter thickness" />
+      </div>
+      <button onclick="calculateCubic()">calculate</button>
+      <div>
+        <p>Cubic Meters (m³)</p>
+        <div id="result"></div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      function calculateCubic() {
+        //get length and replace comma with point, then turn it into a floating point number
+        var length = document.getElementById("length").value.replace(",", ".");
+        length = length.replace(/,/g, ".");
+        length = parseFloat(length);
+
+        //get width and replace comma with point, then turn it into a floating point number
+        var width = document.getElementById("width").value.replace(",", ".");
+        width = width.replace(/,/g, ".");
+        width = parseFloat(width);
+
+        //get thickness, replace comma with point, turn it into a floating point number and divide by 100
+        var thickness = document.getElementById("thickness").value;
+        thickness = thickness.replace(/,/g, ".");
+        thickness = parseFloat(thickness) / 100;
+        //Calculate volume, then limit to 2 decimals after point
+        var cubic_meters = length * width * thickness;
+        document.getElementById("result").innerHTML = cubic_meters.toFixed(2);
+      }
+    </script>
+  </body>
+</html>

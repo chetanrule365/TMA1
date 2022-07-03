@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body {
+  background: linear-gradient(90deg, #f0d4ba, #ffffff);
+  font-family: "Roboto", sans-serif;
+  padding: 10%;
+}
+
+.cover-image {
+  width: 100%;
+  max-width: 540px;
+  margin-top: 50px;
+}
+
+.student-details {
+  width: 240px;
+}
+
+.cover-cta {
+  display: block;
+  width: fit-content;
+  background: #ff8845;
+  padding: 8px;
+  text-decoration: none;
+  color: rgb(57, 57, 57);
+  text-transform: uppercase;
+  border-radius: 4px;
+  margin-top: 50px;
+}
+
+section {
+  display: flex;
+  padding: 24px;
+  margin: 48px 0;
+}
+
+section.reverse {
+  flex-direction: row-reverse;
+}
+
+section .info {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+section .info h1 {
+  font-size: 64px;
+  text-shadow: 2px 2px #ff8845;
+}
+
+section .image {
+  width: 50%;
+}
+
+section .image img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+section .info a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  background: rgb(0, 0, 0);
+  padding: 8px 16px;
+  border-radius: 8px;
+  margin-top: 24px;
+  font-weight: 600;
+}

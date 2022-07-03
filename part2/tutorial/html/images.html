@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn Web</title>
+    <link rel="stylesheet" href="/part2/style.css" />
+  </head>
+  <body>
+    
+    <div class="header-tabs">
+      <h4 class="selected">
+        <a href="/part2/tutorial/html" target="_blank" rel="noopener noreferrer"
+          >HTML</a
+        >
+      </h4>
+      <h4>
+        <a href="/part2/tutorial/css" target="_blank" rel="noopener noreferrer"
+          >CSS</a
+        >
+      </h4>
+      <h4>
+        <a href="/part2/tutorial/js" target="_blank" rel="noopener noreferrer"
+          >JAVASCRIPT</a
+        >
+      </h4>
+    </div>
+    <div class="content-container">
+      <div class="topics-container">
+        <h3>HTML TUTORIAL</h3>
+        <div id="topics"></div>
+      </div>
+      <div id="tutorial-content">
+        <section id="topic-section"></section>
+      </div>
+    </div>
+    <script src="./scripts/common.js"></script>
+    <script src="./scripts/images.js"></script>
+    <script type="text/javascript">
+      const topicsEle = document.querySelector("#topics");
+      topics.forEach((topic) => {
+        const p = document.createElement("p");
+        p.innerHTML = `<a href="/part2/tutorial/html/${
+          topic === "Basic" ? "index" : topic
+        }.html">${topic}</a>`;
+        if (topic === "Images") {
+          p.classList.add("selected");
+        }
+        topicsEle.appendChild(p);
+      });
+
+      const topicContentContainer = document.querySelector("#tutorial-content");
+      topicContents.forEach((topicContent) => {
+        const topicContentEle = document.createElement("section");
+        Object.assign(topicContentEle, {
+          id: "topic-section",
+        });
+        topicContentEle.innerHTML = `
+        <h2>${topicContent.title}</h2>
+        <p>${topicContent.description}</p>
+        <h4>Example</h4>
+        <code>${topicContent.example}</code>`;
+        topicContentContainer.appendChild(topicContentEle);
+      });
+    </script>
+  </body>
+</html>

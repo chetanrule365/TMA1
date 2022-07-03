@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Area Conversion App</h1>
+
+      <p>
+        Please enter your length in feet:<br />
+        <input type="text" id="length" />
+      </p>
+
+      <p>
+        Please enter your width in feet:<br />
+        <input type="text" id="width" />
+      </p>
+
+      <p>
+        <button id="calculate" onclick="calculate_click()">
+          Calculate Area
+        </button>
+      </p>
+      <p>
+        Your area in square feet is:<br />
+        <input type="text" id="squareFeet" readonly />
+      </p>
+      <p>
+        Your area in square yards is:<br />
+        <input type="text" id="squareYards" readonly />
+      </p>
+      <p>
+        Your area in square meters is:<br />
+        <input type="text" id="squareMeters" readonly />
+      </p>
+    </div>
+    <script type="text/javascript">
+      /* Create your JavaScript functionality here */
+
+      var $ = function (id) {
+        return document.getElementById(id);
+      };
+
+      var calculate_click = function () {
+        var length = parseFloat($("length").value);
+        var width = parseFloat($("width").value);
+
+        $("squareFeet").value = "";
+        squareFeet = length * width;
+        $("squareFeet").value = squareFeet.toFixed(2);
+
+        $("squareYards").value = "";
+        squareYards = squareFeet * 0.111111;
+        $("squareYards").value = squareYards.toFixed(2);
+
+        $("squareMeters").value = "";
+        squareMeters = squareFeet * 0.0929;
+        $("squareMeters").value = squareMeters.toFixed(2);
+      };
+    </script>
+  </body>
+</html>

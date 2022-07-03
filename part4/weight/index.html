@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="weight">
+      <h3>weight</h3>
+
+      <div class="flex">
+        <label for="weight_kg">kg</label>
+        <input id="weight_kg" type="number" placeholder="kg" value="" />
+      </div>
+
+      <div class="flex">
+        <label for="weight_lb">lb</label>
+        <input id="weight_lb" type="number" placeholder="lb" value="" />
+      </div>
+
+      <h3>...</h3>
+    </div>
+    <script type="text/javascript">
+      var alpha = 2.20462262185;
+
+      const weightKGEle = document.getElementById("weight_kg");
+      const weightLBEle = document.getElementById("weight_lb");
+
+      weightKGEle.addEventListener("input", (e) => {
+        weightLBEle.value = Math.round(e.target.value * alpha);
+      });
+      weightLBEle.addEventListener("input", (e) => {
+        weightKGEle.value = Math.round(e.target.value / alpha);
+      });
+    </script>
+  </body>
+</html>

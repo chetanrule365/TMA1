@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <title>Mortgage Calculator</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Calculate your Monthly Payment</h1>
+      <input
+        type="text"
+        class="calcInput"
+        id="inCost"
+        placeholder="Loan Amount ($)"
+      />
+
+      <input
+        type="text"
+        class="calcInput"
+        id="inDown"
+        placeholder="Down Payment ($)"
+      />
+
+      <input
+        type="text"
+        class="calcInput"
+        id="inInterest"
+        placeholder="Interest (%)"
+      />
+
+      <input
+        type="text"
+        class="calcInput"
+        id="inTerm"
+        placeholder="Length of Loan (years)"
+      />
+      <p>
+        <button type="button" class="calcButton" id="btnCalculate">
+          Calculate
+        </button>
+      </p>
+
+      <p class="calcAnswer">
+        <b>Total Monthly Payment</b>:
+        <br />
+        <br /><span id="outMonthly">Please enter the values above.</span>
+      </p>
+    </div>
+    <script type="text/javascript">
+      function calculateMortgage(p, r, n) {
+        r = percentToDecimal(r);
+        n = yearsToMonths(n);
+        var pmt = (r * p) / (1 - Math.pow(1 + r, -n));
+        return parseFloat(pmt.toFixed(2));
+      }
+
+      function percentToDecimal(percent) {
+        return percent / 12 / 100;
+      }
+
+      function yearsToMonths(year) {
+        return year * 12;
+      }
+      var htmlEl = document.getElementById("outMonthly");
+
+      function postPayments(pmt) {
+        htmlEl.innerText = "$" + pmt;
+      }
+      var btn = document.getElementById("btnCalculate");
+      btn.onclick = function () {
+        var cost = document.getElementById("inCost").value.replace("$", "");
+        var downPayment = document
+          .getElementById("inDown")
+          .value.replace("$", "");
+        var interest = document
+          .getElementById("inInterest")
+          .value.replace("%", "");
+        var term = document
+          .getElementById("inTerm")
+          .value.replace(" years", "");
+
+        if (cost == "" && downPayment == "" && interest == "" && term == "") {
+          htmlEl.innerText = "Please fill out all fields.";
+          return false;
+        }
+        if (cost < 0 || cost == "" || isNaN(cost)) {
+          htmlEl.innerText = "Please enter a valid loan amount.";
+          return false;
+        }
+        if (downPayment < 0 || downPayment == "" || isNaN(downPayment)) {
+          htmlEl.innerText = "Please enter a valid down payment.";
+          return false;
+        }
+        if (interest < 0 || interest == "" || isNaN(interest)) {
+          htmlEl.innerText = "Please enter a valid interest rate.";
+          return false;
+        }
+        if (term < 0 || term == "" || isNaN(term)) {
+          htmlEl.innerText = "Please enter a valid length of loan.";
+          return false;
+        }
+        var amountBorrowed = cost - downPayment;
+        var pmt = calculateMortgage(amountBorrowed, interest, term);
+        postPayments(pmt);
+      };
+    </script>
+  </body>
+</html>

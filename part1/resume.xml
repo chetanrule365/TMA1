@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="resume.xsl" type="text/xsl"?>
+<cv>
+    <me name="Ijeoma Chickwekwem" address="3837 Bloomington Crescent, Mississauga ON" telephone="(647)542-2613" email="ijeomachikwekwem@gmail.com" />
+    <education>
+        <qualification establishment="Calisota University" type="Degree" from="2006" to="2009">
+            Bachelor of Science – Computing Science
+            <strong>(CGPA 3.55/4.0)</strong>
+        </qualification>
+    </education>
+    <employment>
+        <experience establishment="Transcom Worldwide" job_title="Technical Support Advisor" from="AUG 2020" to="Present">
+            <description>(Tools: Core, iCloud, Gather, Safeview, Microsoft Outlook)</description>
+            <achievement>Provided exceptional technical phone support for Apple Products (iPhone, iPad, Apple Watch, Apple Accessories, etc.)</achievement>
+            <achievement>Investigated and resolved customer inquiries and complaints in a timely and empathetic manner</achievement>
+            <achievement>Handled a large amount of calls every day but made sure each customer’s concern is addressed and resolved.</achievement>
+            <achievement>Consulted user guides, technical manuals and other relevant documents to research to implement solutions</achievement>
+            <achievement>Provide advice training to users on response to identified difficulties</achievement>
+            <achievement>Provide business systems, network, and internet support to users in response to identified difficulties</achievement>
+            <achievement>Managed wide variety of customer service and administrative tasks to resolve customer issues quickly</achievement>
+        </experience>
+        <experience establishment="SP Data" job_title="Customer Service and Telesales Representative" from="Apr 2019" to="Jun 2019">
+            <description>Retained customers by utilizing key relationship building skills and effective customer service techniques</description>
+            <achievement>Successfully presented products by utilizing effective sales and persuasion skills in addition to a solid knowledge of the company’s products and
+                competitor’s products</achievement>
+            <achievement>Efficiently handled a large volume of calls</achievement>
+            <achievement>Strategically provided appropriate resolutions that were optimal solutions for a valued customer base</achievement>
+            <achievement>Handled intricate Sprint customer complaints related to their products and services</achievement>
+            <achievement>Always maintained professional integrity and customer focus while meeting and exceeding monthly quotas</achievement>
+            <achievement>Working with customers to resolve any issues which may be preventing them from maintaining a relationship with Sprint</achievement>
+        </experience>
+    </employment>
+    <projects>
+        <project name='Client-Server Program'>
+            <point>Tools: Atom Editor, Terminal</point>
+            <point>Made a simple client program using C programming. The client program initiates the communication by sending request. The
+                server program which runs continuously, waits to receive communication from the client</point>
+            <point>• Implemented a time server using socket programming and communicated using User Datagram Protocol (UDP).</point>
+        </project>
+        <project name='TCP/IP Socket Program'>
+            <point>Used Socket programming to write an echo server that utilizes the TCP/IP protocol</point>
+        </project>
+        <project name='Implemented a Reliable Block Transfer Application'>
+            <point>Implemented a reliable block transfer application using the Stop-and-Wait (SWAP) protocol. Both the sender and receiver use a sliding window
+                with size 1. The sender sends one packet a time and waits for an acknowledgment before sending the next packet. Added a checksum packet to
+                detect corrupted packets.</point>
+        </project>
+        <project name='Palo Alto Network Topology'>
+            <point>Configured appropriate Network Zones (Inside, Outside, DMZ) </point>
+            <point>Assigned appropriate interfaces to Network zones</point>
+            <point>Configured Branch and LAN Network Topology using Palo Alto Firewall ensuring all hosts can communicate both interzone and intrazone</point>
+            <point>Created security and NAT policies to regulate data flow from one zone to another.</point>
+            <point>Configured HA for the Corporate Network Firewall</point>
+            <point>Established a VPN between Corporate and Branch Networks </point>
+        </project>
+        <project name='National Bank of Erehwon Database'>
+            <point>Tools: Microsoft Excel, Oracle SQL developer</point>
+            <point>Description: Developed a database in Oracle that implements a fictional Erehwon Bank scenario. The National Bank of Erehwon handles money
+                and maintains bank accounts on behalf of clients. In the database when an account is first opened, its balance is set to zero. During the course of
+                day-to-day business, the bank applies transactions to accounts, including deposits, withdrawals, bill payments, and debit purchases or returns.
+                For each transaction, the data and time, amount, and accounts are recorded along the reference data applicable to that type of transaction.</point>
+        </project>
+    </projects>
+    <certifications>
+        <certificate>OWASP Top 10 (LinkedIn)</certificate>
+        <certificate>Vulnerability Management (LinkedIn)</certificate>
+        <certificate>CompTIA A+ (CompTIA)</certificate>
+        <certificate>CompTIA Network+ (In View)</certificate>
+        <certificate>Splunk 7.x Fundamentals (Splunk)</certificate>
+        <certificate>Palo Alto Networks Cybersecurity Professional Certificate (Coursera)</certificate>
+    </certifications>
+</cv>
